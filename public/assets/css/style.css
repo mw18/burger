@@ -1,0 +1,48 @@
+
+h1{
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+  color:black;
+  font-size: 100px;
+ 
+}
+
+.miniHeading {
+  color:black;
+  text-align: center;
+  font-size: 38px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.addBurger {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.moveMe {
+  text-align: center;
+  margin: 0 auto 3% 0;
+
+}
+
+
+.showBurger {
+  text-align: center;
+  font-size: 28px;
+}
+
+.devourBurger
+{
+  text-align: center;
+  font-size: 28px;
+}
+
+.btn {
+  padding-top: 0px;
+}
+
