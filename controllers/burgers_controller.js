@@ -31,11 +31,11 @@ router.post("/updateOne/:id", function (req, res) {
   // holds burgers being devoured 
   var condition = "id = " + req.params.id;
   burger.updateOne({
-      // Use updateOne from burger.js
-      devoured: req.body.devoured
-  }, condition, function () {
+    // Use updateOne from burger.js
+    devoured: req.body.devoured
+  },condition, function () {
       //redirects it to main page                         
-      res.redirect("/");
+    res.redirect("/");
   });
 });
 
@@ -43,6 +43,7 @@ router.post("/updateOne/:id", function (req, res) {
 router.post("/deleteOne/:id", function (req, res) {
   // holds burger being deleted     
   var condition = "id = " + req.params.id;
+  console.log(condition)
   // Redirect to the homepage                 
   burger.deleteOne(condition, function () {
       res.redirect("/");

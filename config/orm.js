@@ -11,6 +11,7 @@ var orm = {
         callback(res)
       })
     },
+    //Insert
     insertOne: (table, columnName, newValue, callback)=>{
       var queryString = "INSERT INTO ?? (??) VALUES (?);";
   
@@ -19,19 +20,42 @@ var orm = {
         callback(data)
       })
     },
-    updateOne: (tableName, idVal, callback)=>{
+    //Update
+    updateOne: (table, idVal, callback)=>{
       var queryString = "UPDATE ?? SET devoured = 1 WHERE id = ?"
   
-      connection.query(queryString, [tableName, idVal], (err,data)=>{
+      connection.query(queryString, [table, idVal], (err,data)=>{
         if (err) { console.log("ERROR: ", err.stack)}
         callback(data)
       })
     },
-  
-  }
-  
-  
+  //   //Delete
+  //   deleteOne: function(id, callback) {
+  //     var queryString = "DELETE FROM burgers WHERE " + id + ";";
+  //     connection.query(queryString, [id], function(err, res) {
+  //         if (err) throw err;
+  //         callback(res);
+  //     });
+  // },
+
+    // Delete a burger from the db.
+    deleteOne: function(table, condition, cb) {
+      var queryString = "DELETE FROM " + table;
+      queryString += " WHERE ";
+      queryString += condition;
+
+      console.log(queryString);
+
+      connection.query(queryString, function(err, result) {
+          if (err) {
+              throw err
+          }
+          cb(result);
+      });
+    }
 
 
+}
+  
 
 module.exports = orm;
