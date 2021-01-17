@@ -18,7 +18,7 @@ if (process.env.JAWSDB_URL){
     password: "password",
     database: "burgers_db"
   });
-};
+
   
 
 // Connect to the database
@@ -29,6 +29,6 @@ connection.connect(function(err) {
   }
   console.log("connected as id " + connection.threadId);
 });
-
+}
 // Export connection
 module.exports = connection;

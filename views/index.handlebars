@@ -10,8 +10,6 @@
   <div class="row">
         <div class="col-12">
             <center> <img src ='https://t3.ftcdn.net/jpg/02/99/22/00/360_F_299220042_IOy7uAdZvTayEHTTSSm5XrSqSbAsfHfo.jpg' ></center>
-
-
        <br>
        <br>
         </div>
@@ -41,7 +39,7 @@
                 <div class="showBurger">
                     <p>
                         {{this.burger_name}}</p>
-                    <form action="/updateOne/{{this.id}}" method="POST">
+                    <form action="/updateOne/:id{{this.id}}" method="POST">
                         <input type="hidden" name="devoured" value="1">
                         <button type="submit" class="btn" style="background-color: #5DBCD2 ;">Devour</button>
                     </form>

@@ -5,7 +5,7 @@ var router = express.Router();
 // Import the model (burger.js) to use its database functions.
 var burger = require("../models/burger.js");
 
-// GET REQUEST
+// GET route
 router.get("/", (req, res)=>{
   burger.selectAll((data)=>{
     // holds burger data
@@ -17,7 +17,7 @@ router.get("/", (req, res)=>{
   });
 });
 
-//REQUEST - Create
+// CREATE route
 router.post("/insertOne", (req,res)=>{
     //passes data into HTML         
   burger.insertOne(req.body.burger_name, function (cheese) {
@@ -26,28 +26,28 @@ router.post("/insertOne", (req,res)=>{
     });
 });
 
-//REQUEST - Update
-router.post("/updateOne/:id", function (req, res) {
-  // holds burgers being devoured 
-  var condition = "id = " + req.params.id;
-  burger.updateOne({
-    // Use updateOne from burger.js
-    devoured: req.body.devoured
-  },condition, function () {
-      //redirects it to main page                         
-    res.redirect("/");
+//Update route
+router.put("/updateOne/:id", (req,res)=>{   
+  burger.updateOne(req.params.id, function (res) {
+  //redirects it to main page
+  res.redirect("/")
+  if (result.changedRows === 0) {
+               return res.status(404)
+         }
   });
 });
 
-//REQUEST - Delete
-router.post("/deleteOne/:id", function (req, res) {
-  // holds burger being deleted     
-  var condition = "id = " + req.params.id;
-  console.log(condition)
-  // Redirect to the homepage                 
-  burger.deleteOne(condition, function () {
-      res.redirect("/");
-  });
-});
+
+
+// router.put("updateOne/:id", function(req, res) {
+//   burger.updateOne(
+//       req.params.id,
+//       function(result) {
+//           
+//           res.status(200)
+//       }
+//   )
+// })
+
 
 module.exports = router;         
