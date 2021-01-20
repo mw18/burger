@@ -2,8 +2,7 @@
 const express = require('express');
 // require express-handlebars
 const exphbs  = require('express-handlebars');
-// require burgers_controllers
-const routes = require("./controllers/burgers_controller.js")
+
 //An instance of the express app
 const app = express();
 // local host / Heroku port 
@@ -17,7 +16,6 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 //handlebars run using main for content
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -25,8 +23,8 @@ app.set("view engine", "handlebars");
 
 app.set('view engine', 'handlebars');
 
-// calls api routes
-app.use("/", routes);
+var routes = require("./controllers/burgers_controller.js");
+app.use(routes);
 
 app.listen(PORT, ()=>{
     console.log("Server listening on: http://localhost:" + PORT);
