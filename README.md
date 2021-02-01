@@ -25,6 +25,7 @@
   Contributions, issues and feature requests are welcome!
   ## Tests
   Screenshots are attached 
+  ![Screen Shot 2021-02-01 at 11 48 12 AM](https://user-images.githubusercontent.com/67554339/106497497-bbd93600-6483-11eb-89be-6654bbd032f0.png)  
   ## Questions
   For more information, here is a link to GitHub
   [@MW18](https://github.com/MW18)<br>
